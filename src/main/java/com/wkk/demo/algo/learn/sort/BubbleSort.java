@@ -30,9 +30,29 @@ public class BubbleSort {
         }
     }
 
+    public static void sort1(int[] arrays) {
+        if(arrays.length <= 1) {
+            return;
+        }
+        boolean flag = false;
+        for (int i = 0; i < arrays.length; i++) {
+            flag = false;
+            for (int j = 0; j < arrays.length - i - 1; j++) {
+                if(arrays[j] > arrays[j+1]) {
+                    int temp = arrays[j];
+                    arrays[j] = arrays[j+1];
+                    arrays[j+1] = temp;
+                    flag = true;
+                }
+            }
+            if(!flag) {
+                return;
+            }
+        }
+    }
     public static void main(String[] args) {
         int[] arrays = new int[]{9,8,7,6,5,4,3,1};
-        sort(arrays);
+        sort1(arrays);
         System.out.println(Arrays.toString(arrays));
     }
 }
