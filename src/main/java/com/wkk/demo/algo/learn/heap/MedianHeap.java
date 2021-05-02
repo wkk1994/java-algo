@@ -4,6 +4,8 @@ import java.util.Comparator;
 import java.util.PriorityQueue;
 /**
  * @Description 通过堆实现获取中位数操作
+ * 实现细节，通过维护两个堆，一个大顶堆，一个小顶堆。在数据插入时选择插入大顶堆或者小顶堆。并且一直保持大顶堆的数据个数是当前总数量的
+ * 一半，这样大顶堆的堆顶就是中位数。
  * @Author Wangkunkun
  * @Date 2020/8/31 13:01
  */
