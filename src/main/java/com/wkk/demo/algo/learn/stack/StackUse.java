@@ -70,4 +70,46 @@ public class StackUse {
         System.out.println(bracketMatch("{}[](){[({[]()})]}"));
         System.out.println(bracketMatch("(((((((((((())))))))"));
     }
+
+    public class TreeNode {
+        int val;
+        TreeNode left;
+        TreeNode right;
+
+        TreeNode() {
+        }
+
+        TreeNode(int val) {
+            this.val = val;
+        }
+
+        TreeNode(int val, TreeNode left, TreeNode right) {
+            this.val = val;
+            this.left = left;
+            this.right = right;
+        }
+    }
+
+    /**
+     * 进行相同的遍历检查是否相同
+     * @param p
+     * @param q
+     * @return
+     */
+    public boolean isSameTree1(TreeNode p, TreeNode q) {
+        if(p == null && q == null) {
+            return true;
+        }
+        if(p != null && q == null) {
+            return false;
+        }
+        if(p == null && q != null) {
+            return false;
+        }
+        if(p.val != q.val) {
+            return false;
+        }
+        return isSameTree1(p.left, q.left) || isSameTree1(p.right, q.right);
+    }
 }
+

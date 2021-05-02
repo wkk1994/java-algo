@@ -1,4 +1,4 @@
-package com.wkk.demo.algo.learn.linked;
+package com.wkk.demo.algo.learn.hashtable;
 
 
 /**

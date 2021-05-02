@@ -26,6 +26,7 @@ public class ShellSort {
             for (int i = gap; i < length; i++) {
                 int temp = arrays[i];
                 int preIndex = i - gap;
+                index ++;
                 while (preIndex >= 0 && temp <  arrays[preIndex]) {
                     index ++;
                     arrays[i] = arrays[preIndex];
@@ -35,15 +36,15 @@ public class ShellSort {
             }
             gap = gap/2;
         }
-        System.out.println(index);
+        System.out.println("index : " + index);
     }
 
     public static void main(String[] args) {
-        int[] arrays = new int[]{8,3,2,5,9,1,7,4};
+        int[] arrays = new int[]{8,3,2,5,9,1,7,4,0};
         sort(arrays);
         System.out.println(Arrays.toString(arrays));
 
-        int[][] arrayss = new int[100000][];
+        /*int[][] arrayss = new int[100000][];
         for (int i = 0; i < 100000; i++) {
             int[] arr = generateArray(200, 200);
             arrayss[i] = arr;
@@ -52,6 +53,6 @@ public class ShellSort {
         for (int[] array : arrayss) {
             sort(array);
         }
-        System.out.println("希尔排序用时：" + (System.currentTimeMillis() - timeMillis));
+        System.out.println("希尔排序用时：" + (System.currentTimeMillis() - timeMillis));*/
     }
 }

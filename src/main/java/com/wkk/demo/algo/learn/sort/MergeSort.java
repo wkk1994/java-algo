@@ -2,6 +2,8 @@ package com.wkk.demo.algo.learn.sort;
 
 import java.util.Arrays;
 
+import static com.wkk.demo.algo.learn.sort.InsertionSort.generateArray;
+
 /**
  * @Description 归并排序的代码实现
  * @Author Wangkunkun
@@ -20,7 +22,7 @@ public class MergeSort {
         int middle = (begin + end) / 2;
         mergeSort(arrays, begin, middle);
         mergeSort(arrays, middle + 1, end);
-        merge(arrays, begin, middle, middle + 1, end);
+        merge1(arrays, begin, middle, middle + 1, end);
     }
 
     private static void merge(int[] arrays, int begin, int end, int nextBegin, int nextEnd) {
@@ -49,11 +51,22 @@ public class MergeSort {
         }
     }
 
+    /**
+     * 该实现有问题-已经修复但是需要更多验证
+     * [10,6,4,7] 排序后为 [4, 6, 10, 7]
+     * @param arrays
+     * @param begin
+     * @param end
+     * @param nextBegin
+     * @param nextEnd
+     */
     private static void merge1(int[] arrays, int begin, int end, int nextBegin, int nextEnd) {
+        int index = 0;
         for (int i = nextBegin; i <= nextEnd; i ++ ) {
             int tempIndex = i;
             int temp = arrays[tempIndex];
-            for (int j = end; j >= begin ; j--) {
+            index ++;
+            for (int j = end + index; j >= begin ; j--) {
                 if(arrays[j] > temp) {
                     arrays[tempIndex] =  arrays[j];
                     tempIndex = j;
@@ -64,7 +77,7 @@ public class MergeSort {
     }
 
     public static void main(String[] args) {
-        int[] arrays = new int[]{8,3,2,5,9,1,7,4};
+        int[] arrays = new int[]{8,3,2,5,9,1,7,4, 0,12,10};
         sort(arrays);
         System.out.println(Arrays.toString(arrays));
     }
